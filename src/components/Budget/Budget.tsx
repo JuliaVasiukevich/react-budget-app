@@ -8,7 +8,7 @@ import { useInput } from "../../hooks/useInput";
 import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
 
 export const Budget = () => {
-  const { currency, setCurrency } = useCurrencyContext();
+  const { currency } = useCurrencyContext();
   const { budget, setBudget } = useBudgetContext();
   const [isEdit, toggleIsEdit] = useToggle();
   const { value, onChange } = useInput();

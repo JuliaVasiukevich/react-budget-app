@@ -10,16 +10,18 @@ export const Remaining = () => {
   const { expenses } = useExpensesContext();
 
   const remain =
-    budget -
-    expenses.reduce((sumExpenses, expense) => {
-      return (sumExpenses += +expense.cost);
-    }, 0);
+  budget -
+  expenses.reduce((sumExpenses, expense) => {
+    return (sumExpenses += +expense.cost);
+  }, 0);
+  
+  const isOver = (remain >=0)
 
   return (
     <>
-    <RemainingStyled>
+    <RemainingStyled $isOver={isOver}>
       <RemainingStringStyled>
-        {remain >=0  && ( `Remaining: ${remain} ${currency}` ) || ( `Overspending: ${remain*(-1)} ${currency}` )} 
+        {isOver  && ( `Remaining: ${remain} ${currency}` ) || ( `Overspending: ${remain*(-1)} ${currency}` )} 
       </RemainingStringStyled>
     </RemainingStyled>
     </>

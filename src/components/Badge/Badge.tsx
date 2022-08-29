@@ -1,4 +1,5 @@
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrenceContext";
+import { StyledBadge } from "./styles";
 
 interface IProps {
     cost: number
@@ -7,5 +8,5 @@ interface IProps {
 export const Badge = ({cost}: IProps) => {
   const { currency, setCurrency } = useCurrencyContext();
 
-  return <div> {currency} {cost}</div>;
+  return <StyledBadge> {currency}{cost}</StyledBadge>;
 };

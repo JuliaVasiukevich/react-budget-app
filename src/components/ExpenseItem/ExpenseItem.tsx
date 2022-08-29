@@ -1,7 +1,8 @@
 import React from "react";
 import { useExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { Badge } from "../Badge/Badge";
-import { CloseButton, Description } from "./styles";
+import { Button } from "../Button/Button";
+import { Description, Wrapper } from "./styles";
 
 interface IProps {
   name: string;
@@ -12,17 +13,16 @@ export const ExpenseItem = ({ name, cost, id }: IProps) => {
   const { deleteExpenses } = useExpensesContext();
 
   const handleClick = () => {
-        deleteExpenses(id);
-  }
+    deleteExpenses(id);
+  };
 
   return (
     <div>
-      <Description> {name} </Description>
-      <Badge cost={cost} />
-      <CloseButton
-        onClick={handleClick}>
-        Del
-      </CloseButton>
+      <Wrapper>
+        <Description> {name} </Description>
+        <Badge cost={cost} />
+        <Button text="Del" onClick={handleClick}/>
+      </Wrapper>
     </div>
   );
 };

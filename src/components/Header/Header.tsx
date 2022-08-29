@@ -5,10 +5,11 @@ import { Remaining } from "../Remaining/Remaining";
 import { Select1 } from "../Select/Select";
 import { Spent } from "../Spent/Spent";
 import { Title } from "../Title/Title";
+import { TitleString } from "./styles";
 
 export interface IOption {
-    value: any,
-    label: string
+  value: Currency;
+  label: string;
 }
 
 export const options: IOption[] = [
@@ -18,11 +19,17 @@ export const options: IOption[] = [
 ];
 
 export const Header = () => {
-    const [currencyValue, setCurrencyValue] = useState<string>(options[0].value);
+  const [currencyValue, setCurrencyValue] = useState<string>(options[0].value);
   return (
     <>
-      <Title text="Budget" />
-      <Select1 options={options} onChange={setCurrencyValue} value={currencyValue}/>
+      <TitleString>
+        <Title text="Budget" />
+        <Select1
+          options={options}
+          onChange={setCurrencyValue}
+          value={currencyValue}
+        />
+      </TitleString>
       <Budget />
       <Remaining />
       <Spent />

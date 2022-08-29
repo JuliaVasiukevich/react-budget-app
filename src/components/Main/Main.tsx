@@ -11,7 +11,7 @@ export const Main = () => {
   return (
     <>
       <Title text="Expenses" />
-      <Input {...searchFilter} />
+      <Input {...searchFilter} placeholder="search..."/>
       <ExpenseList filterQuery={debouncedValue} />
     </>
   );

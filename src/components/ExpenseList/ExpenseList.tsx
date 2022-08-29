@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
 import { useExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { ExpenseItem } from "../ExpenseItem/ExpenseItem";
+import { Wrapper } from "./styles";
 
 export const ExpenseList = ({ filterQuery }: any) => {
   const { expenses } = useExpensesContext();
 
   return (
-    <div>
+    <Wrapper>
       {expenses
         .filter((item) => {
           return (
@@ -22,7 +22,8 @@ export const ExpenseList = ({ filterQuery }: any) => {
               id={expense.id}
             />
           );
-        })}
-    </div>
+        }) 
+      }
+    </Wrapper>
   );
 };

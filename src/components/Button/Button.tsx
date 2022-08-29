@@ -2,7 +2,7 @@ import { ButtonStyled } from "./styles";
 
 interface IProps {
   text?: string;
-  onClick?: any;
+  onClick?: () => void;
   type?: "button" | "submit" | "reset"
 }
 
