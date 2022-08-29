@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import { TitleStyled } from "./styles";
 
-export const Title = () => {
-  return (
-    <div>Title</div>
-  )
+interface IProps {
+  text?: string;
 }
+
+export const Title = ({ text }: IProps) => {
+  return <TitleStyled> {text} </TitleStyled>;
+};

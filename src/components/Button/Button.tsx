@@ -1,7 +1,11 @@
-import React from 'react'
+import { ButtonStyled } from "./styles";
 
-export const Button = () => {
-  return (
-    <div>Button</div>
-  )
+interface IProps {
+  text?: string;
+  onClick?: any;
+  type?: "button" | "submit" | "reset"
 }
+
+export const Button = ({ text, onClick, type }: IProps) => {
+  return <ButtonStyled onClick={onClick} type={type}>{text}</ButtonStyled>;
+};

@@ -1,7 +1,7 @@
-import React from 'react'
+import { useCurrencyContext } from "../../context/CurrencyContext/CurrenceContext";
 
 export const Badge = () => {
-  return (
-    <div>Badge</div>
-  )
-}
+  const { currency, setCurrency } = useCurrencyContext();
+
+  return <div> {currency} 100</div>;
+};
