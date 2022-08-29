@@ -1,7 +1,11 @@
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrenceContext";
 
-export const Badge = () => {
+interface IProps {
+    cost: number
+}
+
+export const Badge = ({cost}: IProps) => {
   const { currency, setCurrency } = useCurrencyContext();
 
-  return <div> {currency} 100</div>;
+  return <div> {currency} {cost}</div>;
 };
