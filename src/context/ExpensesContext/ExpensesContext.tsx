@@ -3,11 +3,20 @@ import { IExpensesContext, IExpensesProviderProps, IExpense } from ".";
 
 const ExpensesContext = createContext<IExpensesContext>({} as IExpensesContext);
 
-const useContextBudgetValue = () => {
+const useContextExpensesValue = () => {
   const [ExpensesContext, setExpensesContext] = useState<IExpensesContext>({
     expenses: [],
-    setExpenses: (newExpenses) => {
-    //   setExpensesContext((ctx) => ({ ...ctx, expenses: newExpenses }));
+    addExpenses: (newExpenses) => {
+      setExpensesContext((ctx) => ({
+        ...ctx,
+        expenses: [...ctx.expenses, newExpenses],
+      }));
+    },
+    deleteExpenses: (expensesForRemove) => {
+      setExpensesContext((ctx) => ({
+        ...ctx,
+        expenses: [...ctx.expenses].filter((expense) => expense.id !== expensesForRemove),
+      }))
     },
   });
 
@@ -21,7 +30,7 @@ export const ExpensesContextProvder: FC<IExpensesProviderProps> = ({
   children,
 }) => {
   return (
-    <ExpensesContext.Provider value={useContextBudgetValue()}>
+    <ExpensesContext.Provider value={useContextExpensesValue()}>
       {children}
     </ExpensesContext.Provider>
   );
