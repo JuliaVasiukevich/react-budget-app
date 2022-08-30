@@ -1,15 +1,11 @@
 import styled from "styled-components";
 import { Color } from "../../ui/colors";
-import closeButton from "./../../assets/closeButton.svg"
 
 const Description = styled.p`
   width: 220px;
 `;
-const CloseButton = styled.button`
-  background-image: url(${closeButton});
-`;
 
-const Wrapper = styled.div`
+const Wrapper = styled.li`
   display: flex;
   align-items: center;
   color: ${Color.PrimaryGray};
@@ -18,4 +14,4 @@ const Wrapper = styled.div`
   height: 50px;
 `;
 
-export { Description, CloseButton, Wrapper};
+export { Description, Wrapper};

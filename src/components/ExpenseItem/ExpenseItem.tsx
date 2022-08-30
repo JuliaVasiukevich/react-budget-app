@@ -7,7 +7,7 @@ import { Description, Wrapper } from "./styles";
 interface IProps {
   name: string;
   cost: number;
-  id: any;
+  id: string;
 }
 export const ExpenseItem = ({ name, cost, id }: IProps) => {
   const { deleteExpenses } = useExpensesContext();
@@ -17,12 +17,12 @@ export const ExpenseItem = ({ name, cost, id }: IProps) => {
   };
 
   return (
-    <div>
+    <>
       <Wrapper>
         <Description> {name} </Description>
         <Badge cost={cost} />
-        <Button onClick={handleClick} deleteButton={true} type="button"/>
+        <Button onClick={handleClick} deleteButton={true} type="button" />
       </Wrapper>
-    </div>
+    </>
   );
 };

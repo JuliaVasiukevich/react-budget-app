@@ -1,28 +1,48 @@
 import { ChangeEvent } from "react";
-import { Path, useForm, UseFormRegister } from "react-hook-form";
-import { IFormValues } from "../Form/Form";
-import { InputStyled } from "./styles";
+import {
+  UseFormRegister,
+  ValidationRule,
+} from "react-hook-form";
+import { FormValuesKeys, IFormValues } from "../../config/formValues";
+import { InputStyled, Wrapper } from "./styles";
 
 interface IProps {
   placeholder?: string;
   type?: string;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  label?: any,
-  register?: UseFormRegister<IFormValues>,
-  required?:  boolean,
-  budgetInput?: boolean,
+  label?: FormValuesKeys;
+  register?: UseFormRegister<IFormValues>;
+  rules?: IRules;
+  budgetInput?: boolean;
 }
 
-export const Input = ({ placeholder, type, value, onChange, label, register, required, budgetInput}: IProps) => {
+interface IRules {
+  required?: boolean;
+  maxLength?: ValidationRule<number>;
+  pattern?: ValidationRule<RegExp>;
+}
+
+export const Input = ({
+  placeholder,
+  type,
+  value,
+  onChange,
+  label,
+  register,
+  rules,
+  budgetInput,
+}: IProps) => {
   return (
-    <InputStyled
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      type={type}
-      {...register && {...register(label, { required })}}
-      $budgetInput={!!budgetInput}
-    />
+    <Wrapper>
+      <InputStyled
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        type={type}
+        {...(register && label && { ...register(label, { ...rules }) })}
+        $budgetInput={!!budgetInput}
+      />
+    </Wrapper>
   );
 };

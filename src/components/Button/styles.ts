@@ -1,6 +1,6 @@
 import { Color } from "./../../ui/colors";
 import styled from "styled-components";
-import closeButton from "./../../assets/closeButton.svg"
+import closeButton from "./../../assets/icons/close.svg"
 
 const ButtonStyled = styled.button`
    display: inline-block;

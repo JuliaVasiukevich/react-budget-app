@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IExpense {
-    id: any,
+    id: string,
     name: string;
     cost: number;
   }
@@ -9,7 +9,7 @@ export interface IExpense {
 export interface IExpensesContext {
   expenses: IExpense[];
   addExpenses: (expenses: IExpense) => void;
-  deleteExpenses: (expenses: IExpense) => void;
+  deleteExpenses: (expensesId: string) => void;
 }
 
 export interface IExpensesProviderProps{

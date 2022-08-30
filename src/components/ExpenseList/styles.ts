@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Color } from "../../ui/colors";
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   height: 200px;
   overflow-y: auto;
 

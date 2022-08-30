@@ -4,7 +4,7 @@ import { Currency } from "../../config/currency";
 
 const CurrencyContext = createContext<ICurrencyContext>({} as ICurrencyContext);
 
-const useContextBudgetValue = () => {
+const useContextCurrencyValue = () => {
   const [currencyContext, setCurrencyContext] = useState<ICurrencyContext>({
     currency: Currency.USD,
     setCurrency: (newCurrency) => {
@@ -22,7 +22,7 @@ export const CurrencyContextProvder: FC<ICurrencyProviderProps> = ({
   children,
 }) => {
   return (
-    <CurrencyContext.Provider value={useContextBudgetValue()}>
+    <CurrencyContext.Provider value={useContextCurrencyValue()}>
       {children}
     </CurrencyContext.Provider>
   );

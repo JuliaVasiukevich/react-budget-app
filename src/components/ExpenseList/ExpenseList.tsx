@@ -2,7 +2,11 @@ import { useExpensesContext } from "../../context/ExpensesContext/ExpensesContex
 import { ExpenseItem } from "../ExpenseItem/ExpenseItem";
 import { EmptyWrapper, Wrapper } from "./styles";
 
-export const ExpenseList = ({ filterQuery }: any) => {
+interface IProps {
+  filterQuery: string
+}
+
+export const ExpenseList = ({ filterQuery }: IProps) => {
   const { expenses } = useExpensesContext();
   const filterExpenses = expenses.filter((item) => {
     return (
@@ -19,6 +23,7 @@ export const ExpenseList = ({ filterQuery }: any) => {
               name={expense.name}
               cost={expense.cost}
               id={expense.id}
+              key={expense.id}
             />
           );
         })}
