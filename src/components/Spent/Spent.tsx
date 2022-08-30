@@ -14,7 +14,7 @@ export const Spent = () => {
   return (
     <SpentStyled>
       <SpentStringStyled>
-        Spent so far: {spent} {currency}
+        Spent so far: {currency}{spent} 
       </SpentStringStyled>
     </SpentStyled>
   );

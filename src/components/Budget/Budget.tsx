@@ -11,13 +11,13 @@ export const Budget = () => {
   const { currency } = useCurrencyContext();
   const { budget, setBudget } = useBudgetContext();
   const [isEdit, toggleIsEdit] = useToggle();
-  const { value, onChange } = useInput();
+  const newBudget = useInput();
 
   const handleSaveClick = () => {
-    setBudget(+value);
+    setBudget(+newBudget.value);
     toggleIsEdit();
   };
-
+  
   const handleEditClick = () => {
     toggleIsEdit();
   };
@@ -30,18 +30,18 @@ export const Budget = () => {
             <Input
               type="number"
               placeholder="Enter  budget ..."
-              value={value}
-              onChange={onChange}
+              budgetInput={true}
+              {...newBudget}
             />
-            <Button text="Save" onClick={handleSaveClick} />
+            <Button text="Save" type="button" onClick={handleSaveClick} headerButton={true}/>
           </>
         )}
         {!isEdit && (
           <>
             <BudgetStringStyled>
-              Budget: {budget} {currency}
+              Budget: {currency}{budget}
             </BudgetStringStyled>
-            <Button text="Edit" onClick={handleEditClick} />
+            <Button text="Edit" onClick={handleEditClick} headerButton={true}/>
           </>
         )}
       </BudgetStyled>

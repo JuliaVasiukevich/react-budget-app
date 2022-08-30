@@ -21,7 +21,7 @@ export const ExpenseItem = ({ name, cost, id }: IProps) => {
       <Wrapper>
         <Description> {name} </Description>
         <Badge cost={cost} />
-        <Button text="Del" onClick={handleClick}/>
+        <Button onClick={handleClick} deleteButton={true} type="button"/>
       </Wrapper>
     </div>
   );

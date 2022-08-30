@@ -22,9 +22,7 @@ export const Form = () => {
       ...formValues,
       id: uuidv4(),
     };
-    console.log(newExpense);
     addExpenses(newExpense);
-    console.log(expenses)
     reset();
   };
 

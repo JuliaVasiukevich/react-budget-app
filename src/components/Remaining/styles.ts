@@ -10,10 +10,11 @@ const RemainingStringStyled = styled.h4`
 const RemainingStyled = styled.div<{ $isOver: boolean }>`
   padding: 32px 20px;
   background-color: ${({ $isOver }) =>
-  $isOver ? `${Color.LightBlue}` : `${Color.Red}`};
+    $isOver ? `${Color.LightBlue}` : `${Color.Red}`};
   color: ${({ $isOver }) => ($isOver ? "black" : `${Color.White}`)};
   margin-bottom: 20px;
   border-radius: 10px;
+  transition: 0.5s;
 `;
 
 export { RemainingStringStyled, RemainingStyled };

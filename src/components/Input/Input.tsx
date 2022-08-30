@@ -10,10 +10,11 @@ interface IProps {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   label?: any,
   register?: UseFormRegister<IFormValues>,
-  required?:  boolean
+  required?:  boolean,
+  budgetInput?: boolean,
 }
 
-export const Input = ({ placeholder, type, value, onChange, label, register, required}: IProps) => {
+export const Input = ({ placeholder, type, value, onChange, label, register, required, budgetInput}: IProps) => {
   return (
     <InputStyled
       value={value}
@@ -21,6 +22,7 @@ export const Input = ({ placeholder, type, value, onChange, label, register, req
       placeholder={placeholder}
       type={type}
       {...register && {...register(label, { required })}}
+      $budgetInput={!!budgetInput}
     />
   );
 };

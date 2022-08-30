@@ -11,7 +11,7 @@ interface IProps {
   value: string;
 }
 
-export const Select1 = ({ value, onChange }: IProps) => {
+export const CustomSelect = ({ value, onChange }: IProps) => {
   const { currency, setCurrency } = useCurrencyContext();
 
   const getCurrencyValue = () =>

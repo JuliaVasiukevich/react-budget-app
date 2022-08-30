@@ -9,7 +9,6 @@ const SpentStringStyled = styled.h4`
 
 const SpentStyled = styled.div`
   padding: 32px 20px;
-  margin-bottom: 30px;
   border-radius: 10px;
   background-color: ${Color.LightPurple};
 `;

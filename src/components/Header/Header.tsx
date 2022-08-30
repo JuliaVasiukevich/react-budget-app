@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Currency } from "../../config/currency";
 import { Budget } from "../Budget/Budget";
 import { Remaining } from "../Remaining/Remaining";
-import { Select1 } from "../Select/Select";
+import { CustomSelect } from "../CustomSelect/CustomSelect";
 import { Spent } from "../Spent/Spent";
 import { Title } from "../Title/Title";
 import { TitleString } from "./styles";
@@ -24,7 +24,7 @@ export const Header = () => {
     <>
       <TitleString>
         <Title text="Budget" />
-        <Select1
+        <CustomSelect
           options={options}
           onChange={setCurrencyValue}
           value={currencyValue}

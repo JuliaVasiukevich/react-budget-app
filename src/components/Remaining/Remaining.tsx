@@ -21,7 +21,7 @@ export const Remaining = () => {
     <>
     <RemainingStyled $isOver={isOver}>
       <RemainingStringStyled>
-        {isOver  && ( `Remaining: ${remain} ${currency}` ) || ( `Overspending: ${remain*(-1)} ${currency}` )} 
+        {isOver  && ( `Remaining: ${currency}${remain} ` ) || ( `Overspending: ${currency}${remain*(-1)} ` )} 
       </RemainingStringStyled>
     </RemainingStyled>
     </>
