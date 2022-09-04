@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Color } from "../../ui/colors";
+import closeButton from "./../../assets/icons/close.svg"
 
 const Description = styled.p`
   width: 220px;
@@ -14,4 +15,16 @@ const Wrapper = styled.li`
   height: 50px;
 `;
 
-export { Description, Wrapper};
+const Button = styled.button`
+  background: none;
+  background-image: url(${closeButton});
+  background-size: 100%;
+  background-repeat:no-repeat;
+  margin-left: 20px;
+  border: none;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+`;
+
+export { Description, Wrapper, Button};

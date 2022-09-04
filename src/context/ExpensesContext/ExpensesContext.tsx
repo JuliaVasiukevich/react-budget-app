@@ -6,16 +6,16 @@ const ExpensesContext = createContext<IExpensesContext>({} as IExpensesContext);
 const useContextExpensesValue = () => {
   const [ExpensesContext, setExpensesContext] = useState<IExpensesContext>({
     expenses: [],
-    addExpenses: (newExpenses) => {
+    addExpense: (newExpenses) => {
       setExpensesContext((ctx) => ({
         ...ctx,
         expenses: [...ctx.expenses, newExpenses],
       }));
     },
-    deleteExpenses: (expensesIdForRemove) => {
+    deleteExpense: (expenseIdForRemove) => {
       setExpensesContext((ctx) => ({
         ...ctx,
-        expenses: [...ctx.expenses].filter((expense) => expense.id !== expensesIdForRemove),
+        expenses: [...ctx.expenses].filter((expense) => expense.id !== expenseIdForRemove),
       }))
     },
   });

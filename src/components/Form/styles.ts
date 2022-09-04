@@ -9,4 +9,18 @@ const Error = styled.span`
   margin-top: -30px;
 `;
 
-export { StyledForm, Error };
+const Button = styled.button`
+   display: inline-block;
+   border: none;
+   border-radius: 10px;
+   padding-block: 15px;
+   background-color: ${Color.Primary};
+   font-size: 16px;
+   width: 100%;
+   margin-bottom: 30px;
+   text-align: center;
+   cursor: pointer;
+   color: ${Color.White}
+ `;
+
+export { StyledForm, Error, Button };

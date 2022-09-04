@@ -1,7 +1,6 @@
-import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { Title } from "../Title/Title";
-import { StyledForm, Error } from "./styles";
+import { StyledForm, Error, Button } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { useExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
@@ -14,14 +13,14 @@ export const Form = () => {
     reset,
     formState: { errors },
   } = useForm<IFormValues>();
-  const { addExpenses } = useExpensesContext();
+  const { addExpense } = useExpensesContext();
 
   const onSubmit: SubmitHandler<IFormValues> = (formValues) => {
     const newExpense = {
       ...formValues,
       id: uuidv4(),
     };
-    addExpenses(newExpense);
+    addExpense(newExpense);
     reset();
   };
 
@@ -64,8 +63,7 @@ export const Form = () => {
         }}
       />
       {errors.cost && <Error>{errors.cost.message}</Error>}
-
-      <Button text="Done" type="submit" />
+      <Button type="submit">Done</Button>
     </StyledForm>
   );
 };

@@ -12,7 +12,7 @@ interface IProps {
 }
 
 export const CustomSelect = ({ value, onChange }: IProps) => {
-  const { currency, setCurrency } = useCurrencyContext();
+  const { setCurrency } = useCurrencyContext();
 
   const getCurrencyValue = () =>
     options.find((currency: IOption) => {

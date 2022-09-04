@@ -1,7 +1,6 @@
 import React from "react";
-import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
-import { BudgetStringStyled, BudgetStyled } from "./styles";
+import { BudgetStringStyled, BudgetStyled, Button } from "./styles";
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrenceContext";
 import { useToggle } from "../../hooks/useToggle";
 import { useInput } from "../../hooks/useInput";
@@ -17,34 +16,32 @@ export const Budget = () => {
     setBudget(+newBudget.value);
     toggleIsEdit();
   };
-  
+
   const handleEditClick = () => {
     toggleIsEdit();
   };
 
   return (
-    <>
-      <BudgetStyled>
-        {isEdit && (
-          <>
-            <Input
-              type="number"
-              placeholder="Enter  budget ..."
-              budgetInput={true}
-              {...newBudget}
-            />
-            <Button text="Save" type="button" onClick={handleSaveClick} headerButton={true}/>
-          </>
-        )}
-        {!isEdit && (
-          <>
+    <BudgetStyled>
+      {isEdit ? (
+        <>
+          <Input
+            type="number"
+            placeholder="Enter  budget ..."
+            budgetInput={true}
+            {...newBudget}
+          />
+          <Button onClick={handleSaveClick}>Save</Button>
+        </>
+      ) : (
+        <>
             <BudgetStringStyled>
-              Budget: {currency}{budget}
+              Budget: {currency}
+              {budget}
             </BudgetStringStyled>
-            <Button text="Edit" onClick={handleEditClick} headerButton={true}/>
-          </>
-        )}
-      </BudgetStyled>
-    </>
+            <Button onClick={handleEditClick}>Edit</Button>
+        </>
+      )}
+    </BudgetStyled>
   );
 };
